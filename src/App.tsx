@@ -1,17 +1,29 @@
-import './App.css';
-import { UsersTable } from './table';
+import TableComponent from "./components/TableComponent";
+import { Link} from 'react-router-dom';
+import MainRouter from "./components/MainRouter";
+import Navbar from "./components/Navbar";
+import { useState } from "react";
 
 
 
 
-function App() {
 
+const App: React.FC = () => {
+  const [isHide, setIsHide] = useState(true);
 
-  return (
-    <>
-     <UsersTable/>
-    </>
-  );
+  const handleIsHide = (isHideData: boolean) => {
+    setIsHide(isHideData);
+  };
+
+  return(
+    
+    <div>
+       <Navbar onDataChange={handleIsHide} />
+      <MainRouter isHide={isHide}/>
+    </div>
+    
+  )
 }
 
-export default App;
+
+export default App
