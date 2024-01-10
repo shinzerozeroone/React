@@ -31,8 +31,9 @@ import axios from 'axios';
 
 
 
-      const getUniversity = async (page: number, limit: number) => {
-        const response = await axios.get(`http://universities.hipolabs.com/search?offset=${(page - 1) * limit}&limit=${10}`)
+      const getUniversity = async (page:number, limit: number) => {
+        const offset = (page - 1) * limit; 
+        const response = await axios.get(`http://universities.hipolabs.com/search?offset=${offset}&limit=${10}`)
         setDataSource(response.data);    
     }
 
